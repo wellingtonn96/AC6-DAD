@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+ 
+<div id="linha">
+    <p>Vaga de estágio em </p><img  class="img_google" src="{% static "img/img_google.jpg" %}" alt="">
+</div>
+<div class="fieldset">
+    <form method="POST">
+            {% csrf_token %}
+        <fieldset>
+            <label for="">Upload seu currículo em <b>PDF:</b></label><br>
+            <input type="file" accept=".pdf" value="Choose File">
+            <div class="textarea">
+                <label>Deseja acrescentar algo não requerido no formulário ?</label><br>
+                <textarea rows="5" cols="55"></textarea>
+            </div>
+        </fieldset><br>
+    </div>
+    <div id="botao">
+        <button type="submit" id="">Enviar dados</button><br>
+        <progress value="75" max="100"></progress>    
+    </div>
+</form>
+
+{% endblock %}

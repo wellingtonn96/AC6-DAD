@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+ 
+<div id="linha">
+    <p class="p1">Vaga de estágio em </p><img  class="img_google" src="{% static "img/img_google.jpg" %}" alt="">
+</div>
+
+<div id="formulario">
+    <form  method="POST">
+            {% csrf_token %}
+        <fieldset>
+            <legend >Graduação Corrente</legend>
+            <ul>
+                <li><input type="radio" name="opcaoCurso" value="SI"/>Sistema de Informação</li>
+                <li><input type="radio" name="opcaoCurso" value="CC"/>Ciência da Computação</li>
+                <li><input type="radio" name="opcaoCurso" value="EC"/>Engenharia da Computação</li>
+            </ul>
+        </fieldset>
+        <fieldset style="height: 180px">
+            <legend>Qual sua linguagem favorita ?</legend>
+                <select name="select" multiple size="3">
+                    <optgroup label="Front-End">
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="javascript">JavaScript</option>
+                    </optgroup>
+                    <optgroup label="Back-End">
+                        <option value="python">Python</option>
+                        <option value="php">PHP</option>
+                        <option value="ruby">Ruby</option>
+                        <option value="java">Java</option>
+                    </optgroup>
+                </select>
+            <div class="label">
+                <label for="curso">Outra não Listada:<br></label>
+                <input id="curso" list="cursos" name="cursos"/>
+                <datalist id="cursos">
+                        <option>Assembly</option>
+                        <option>C#</option>
+                        <option>Delphi / Object Pascal</option>
+                        <option>Go</option>
+                        <option>JavaScript</option>
+                        <option>MATLAB</option>
+                        <option>Objective-C</option>
+                        <option>Perl</option>
+                        <option>PHP</option>
+                        <option>PL/SQL</option>
+                        <option>Ruby</option>
+                        <option>Scratch</option>
+                        <option>Swift</option>
+                        <option>Visual Basic.NET</option>
+                </datalist>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Além do Português, possui nível avançado em algum outro idioma ?</legend>
+            <ul>
+                <li>Inglês<input type="checkbox" name="idioma" value="ingles"/></li>
+                <li>Espanhol<input type="checkbox" name="idioma" value="espanhol"/></li>
+                <li>Frances<input type="checkbox" name="idioma" value="frances"/></li>
+                <br>
+                <li>Outra não listada:<br>
+                    <input id="inputCaixa" list="caixa"/>
+                    <datalist id="caixa">
+                        <option>Alemão</option>
+                        <option>Russo</option>
+                    </datalist>
+                </li>
+            </ul>
+        </fieldset>
+
+        <div id="botao">
+            <button type="submit">Prosseguir, só mais uma página</button><br>
+            <progress value="30" max="100"></progress>    
+        </div>
+    </form>
+</div>
+
+{% endblock %}
